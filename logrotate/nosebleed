@@ -1,0 +1,12 @@
+/var/log/nosebleed/dump.*.log {
+	daily
+	rotate 10
+	size 2M
+	mail adamiaonr@gmail.com
+	compress
+	nocreate
+	missingok
+	postrotate
+		/etc/init.d/nosebleed restart
+	endscript
+}

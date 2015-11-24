@@ -1,0 +1,1038 @@
+ * Reloading /etc/samba/smb.conf smbd
+   ...done.
+2axi-cache is /usr/bin/axi-cache
+-show
+top-file-validate
+gem1.9.1 is /usr/bin/gem1.9.1
+grub-set-default is /usr/sbin/grub-set-default
+
+ig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+bash: type: grub-sparc64-setup: not found
+cue
+grub-mkimage is /usr/bin/grub-mkimage
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+t
+_expand is a function
+
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+ufw is /usr/sbin/ufw
+ctl
+start
+status is /sbin/status
+lgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+222232222/bin/sh: 1: grive: not found
+3333333/bin/sh: 1: grive: not found
+/usr/bin/php5
+/bin/sh: 1: grive: not found
+axi-cache is /usr/bin/axi-cache
+debconf-show is /usr/bin/debconf-show
+desktop-file-validate is /usr/bin/desktop-file-validate
+grub-set-default is /usr/sbin/grub-set-default
+
+ig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+grub-mkrescue is /usr/bin/grub-mkrescue
+grub-mkimage is /usr/bin/grub-mkimage
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-probe is /usr/sbin/grub-probe
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+quilt is /usr/bin/quilt
+_expand is a function
+_expand () 
+{ 
+    if [[ "$cur" == \~*/* ]]; then
+        eval cur=$cur 2> /dev/null;
+    else
+        if [[ "$cur" == \~* ]]; then
+            cur=${cur#\~};
+            COMPREPLY=($( compgen -P '~' -u "$cur" ));
+            [[ ${#COMPREPLY[@]} -eq 1 ]] && eval COMPREPLY[0]=${COMPREPLY[0]};
+            return ${#COMPREPLY[@]};
+        fi;
+    fi
+}
+_filedir is a function
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+ufw is /usr/sbin/ufw
+initctl is /sbin/initctl
+start is /sbin/start
+stop is /sbin/stop
+restart is /sbin/restart
+status is /sbin/status
+reload is /sbin/reload
+valgrind is /usr/bin/valgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+axi-cache is /usr/bin/axi-cache
+debconf-show is /usr/bin/debconf-show
+desktop-file-validate is /usr/bin/desktop-file-validate
+gem1.9.1 is /usr/bin/gem1.9.1
+grub-set-default is /usr/sbin/grub-set-default
+grub-reboot is /usr/sbin/grub-reboot
+grub-editenv is /usr/bin/grub-editenv
+grub-mkconfig is /usr/sbin/grub-mkconfig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+bash: type: grub-sparc64-setup: not found
+grub-install is /usr/sbin/grub-install
+grub-mkfont is /usr/bin/grub-mkfont
+grub-mkrescue is /usr/bin/grub-mkrescue
+grub-mkimage is /usr/bin/grub-mkimage
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-probe is /usr/sbin/grub-probe
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+quilt is /usr/bin/quilt
+_expand is a function
+_expand () 
+{ 
+    if [[ "$cur" == \~*/* ]]; then
+        eval cur=$cur 2> /dev/null;
+    else
+        if [[ "$cur" == \~* ]]; then
+            cur=${cur#\~};
+            COMPREPLY=($( compgen -P '~' -u "$cur" ));
+            [[ ${#COMPREPLY[@]} -eq 1 ]] && eval COMPREPLY[0]=${COMPREPLY[0]};
+            return ${#COMPREPLY[@]};
+        fi;
+    fi
+}
+_filedir is a function
+_filedir () 
+{ 
+    local i IFS='
+' xspec;
+    _tilde "$cur" || return 0;
+    local -a toks;
+    local quoted x tmp;
+    _quote_readline_by_ref "$cur" quoted;
+    x=$( compgen -d -- "$quoted" ) && while read -r tmp; do
+        toks+=("$tmp");
+    done <<< "$x";
+    if [[ "$1" != -d ]]; then
+        xspec=${1:+"!*.@($1|${1^^})"};
+        x=$( compgen -f -X "$xspec" -- $quoted ) && while read -r tmp; do
+            toks+=("$tmp");
+        done <<< "$x";
+    fi;
+    [[ -n ${COMP_FILEDIR_FALLBACK:-} && -n "$1" && "$1" != -d && ${#toks[@]} -lt 1 ]] && x=$( compgen -f -- $quoted ) && while read -r tmp; do
+        toks+=("$tmp");
+    done <<< "$x";
+    if [[ ${#toks[@]} -ne 0 ]]; then
+        compopt -o filenames 2> /dev/null;
+        COMPREPLY+=("${toks[@]}");
+    fi
+}
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+ufw is /usr/sbin/ufw
+initctl is /sbin/initctl
+start is /sbin/start
+stop is /sbin/stop
+restart is /sbin/restart
+status is /sbin/status
+reload is /sbin/reload
+valgrind is /usr/bin/valgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+/bin/sh: 1: grive: not found
+/usr/bin/php5
+ive: not found
+/bin/sh: 1: grive: not found
+axi-cache is /usr/bin/axi-cache
+debconf-show is /usr/bin/debconf-show
+desktop-file-validate is /usr/bin/desktop-file-validate
+gem1.9.1 is /usr/bin/gem1.9.1
+grub-set-default is /usr/sbin/grub-set-default
+grub-reboot is /usr/sbin/grub-reboot
+grub-editenv is /usr/bin/grub-editenv
+grub-mkconfig is /usr/sbin/grub-mkconfig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+bash: type: grub-sparc64-setup: not found
+grub-install is /usr/sbin/grub-install
+grub-mkfont is /usr/bin/grub-mkfont
+grub-mkrescue is /usr/bin/grub-mkrescue
+grub-mkimage is /usr/bin/grub-mkimage
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-probe is /usr/sbin/grub-probe
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+quilt is /usr/bin/quilt
+_expand () 
+{ 
+    if [[ "$cur" == \~*/* ]]; then
+        eval cur=$cur 2> /dev/null;
+    else
+        if [[ "$cur" == \~* ]]; then
+            cur=${cur#\~};
+            COMPREPLY=($( compgen -P '~' -u "$cur" ));
+            [[ ${#COMPREPLY[@]} -eq 1 ]] && eval COMPREPLY[0]=${COMPREPLY[0]};
+            return ${#COMPREPLY[@]};
+        fi;
+    fi
+}
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+ufw is /usr/sbin/ufw
+initctl is /sbin/initctl
+start is /sbin/start
+stop is /sbin/stop
+restart is /sbin/restart
+status is /sbin/status
+reload is /sbin/reload
+valgrind is /usr/bin/valgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+/usr/bin/php5
+ive: not found
+s2ram: not found
+s2disk: not found
+s2both: not found
+before_hooks is a shell function
+ethtool is /sbin/ethtool
+Cannot get current wake-on-lan settings: No such device
+  not setting wol
+/sbin/iwpriv
+/sbin/iwconfig
+222222222222222_get_comp_words_by_ref is a function
+_get_comp_words_by_ref () 
+{ 
+    local exclude flag i OPTIND=1;
+    local cur cword words=();
+    local upargs=() upvars=() vcur vcword vprev vwords;
+    while getopts "c:i:n:p:w:" flag "$@"; do
+        case $flag in 
+            c)
+                vcur=$OPTARG
+            ;;
+            i)
+                vcword=$OPTARG
+            ;;
+            n)
+                exclude=$OPTARG
+            ;;
+            p)
+                vprev=$OPTARG
+            ;;
+            w)
+                vwords=$OPTARG
+            ;;
+        esac;
+    done;
+    while [[ $# -ge $OPTIND ]]; do
+        case ${!OPTIND} in 
+            cur)
+                vcur=cur
+            ;;
+            prev)
+                vprev=prev
+            ;;
+            cword)
+                vcword=cword
+            ;;
+            words)
+                vwords=words
+            ;;
+            *)
+                echo "bash: $FUNCNAME(): \`${!OPTIND}': unknown argument" 1>&2;
+                return 1
+            ;;
+        esac;
+        let "OPTIND += 1";
+    done;
+    __get_cword_at_cursor_by_ref "$exclude" words cword cur;
+    [[ -n $vcur ]] && { 
+        upvars+=("$vcur");
+        upargs+=(-v $vcur "$cur")
+    };
+    [[ -n $vcword ]] && { 
+        upvars+=("$vcword");
+        upargs+=(-v $vcword "$cword")
+    };
+    [[ -n $vprev && $cword -ge 1 ]] && { 
+        upvars+=("$vprev");
+        upargs+=(-v $vprev "${words[cword - 1]}")
+    };
+    [[ -n $vwords ]] && { 
+        upvars+=("$vwords");
+        upargs+=(-a${#words[@]} $vwords "${words[@]}")
+    };
+    (( ${#upvars[@]} )) && local "${upvars[@]}" && _upvars "${upargs[@]}"
+}
+22233_git_checkout () 
+{ 
+    __git_has_doubledash && return;
+    case "$cur" in 
+        --conflict=*)
+            __gitcomp "diff3 merge" "" "${cur##--conflict=}"
+        ;;
+        --*)
+            __gitcomp "
+			--quiet --ours --theirs --track --no-track --merge
+			--conflict= --orphan --patch
+			"
+        ;;
+        *)
+            local flags="--track --no-track --no-guess" track=1;
+            if [ -n "$(__git_find_on_cmdline "$flags")" ]; then
+                track='';
+            fi;
+            __gitcomp_nl "$(__git_refs '' $track)"
+        ;;
+    esac
+}
+33_git_checkout () 
+{ 
+    __git_has_doubledash && return;
+    case "$cur" in 
+        --conflict=*)
+            __gitcomp "diff3 merge" "" "${cur##--conflict=}"
+        ;;
+        --*)
+            __gitcomp "
+			--quiet --ours --theirs --track --no-track --merge
+			--conflict= --orphan --patch
+			"
+        ;;
+        *)
+            local flags="--track --no-track --no-guess" track=1;
+            if [ -n "$(__git_find_on_cmdline "$flags")" ]; then
+                track='';
+            fi;
+            __gitcomp_nl "$(__git_refs '' $track)"
+        ;;
+    esac
+}
+2222222222/bin/sh: 1: grive: not found
+/usr/bin/php5
+ive: not found
+/bin/sh: 1: grive: not found
+/usr/bin/php5
+/bin/sh: 1: grive: not found
+axi-cache is /usr/bin/axi-cache
+debconf-show is /usr/bin/debconf-show
+desktop-file-validate is /usr/bin/desktop-file-validate
+gem1.9.1 is /usr/bin/gem1.9.1
+grub-set-default is /usr/sbin/grub-set-default
+grub-reboot is /usr/sbin/grub-reboot
+grub-editenv is /usr/bin/grub-editenv
+grub-mkconfig is /usr/sbin/grub-mkconfig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+bash: type: grub-sparc64-setup: not found
+grub-install is /usr/sbin/grub-install
+grub-mkfont is /usr/bin/grub-mkfont
+grub-mkrescue is /usr/bin/grub-mkrescue
+grub-mkimage is /usr/bin/grub-mkimage
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-probe is /usr/sbin/grub-probe
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+quilt is /usr/bin/quilt
+_expand is a function
+_expand () 
+{ 
+    if [[ "$cur" == \~*/* ]]; then
+        eval cur=$cur 2> /dev/null;
+    else
+        if [[ "$cur" == \~* ]]; then
+            cur=${cur#\~};
+            COMPREPLY=($( compgen -P '~' -u "$cur" ));
+            [[ ${#COMPREPLY[@]} -eq 1 ]] && eval COMPREPLY[0]=${COMPREPLY[0]};
+            return ${#COMPREPLY[@]};
+        fi;
+    fi
+}
+_filedir is a function
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+ufw is /usr/sbin/ufw
+initctl is /sbin/initctl
+start is /sbin/start
+stop is /sbin/stop
+restart is /sbin/restart
+status is /sbin/status
+reload is /sbin/reload
+valgrind is /usr/bin/valgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+/bin/sh: 1: grive: not found
+222233_git_push () 
+{ 
+    case "$prev" in 
+        --repo)
+            __gitcomp_nl "$(__git_remotes)";
+            return
+        ;;
+    esac;
+    case "$cur" in 
+        --repo=*)
+            __gitcomp_nl "$(__git_remotes)" "" "${cur##--repo=}";
+            return
+        ;;
+        --*)
+            __gitcomp "
+			--all --mirror --tags --dry-run --force --verbose
+			--receive-pack= --repo= --set-upstream
+		";
+            return
+        ;;
+    esac;
+    __git_complete_remote_or_refspec
+}
+4_git_push () 
+{ 
+    case "$prev" in 
+        --repo)
+            __gitcomp_nl "$(__git_remotes)";
+            return
+        ;;
+    esac;
+    case "$cur" in 
+        --repo=*)
+            __gitcomp_nl "$(__git_remotes)" "" "${cur##--repo=}";
+            return
+        ;;
+        --*)
+            __gitcomp "
+			--all --mirror --tags --dry-run --force --verbose
+			--receive-pack= --repo= --set-upstream
+		";
+            return
+        ;;
+    esac;
+    __git_complete_remote_or_refspec
+}
+222233_git_checkout () 
+{ 
+    __git_has_doubledash && return;
+    case "$cur" in 
+        --conflict=*)
+            __gitcomp "diff3 merge" "" "${cur##--conflict=}"
+        ;;
+        --*)
+            __gitcomp "
+			--quiet --ours --theirs --track --no-track --merge
+			--conflict= --orphan --patch
+			"
+        ;;
+        *)
+            local flags="--track --no-track --no-guess" track=1;
+            if [ -n "$(__git_find_on_cmdline "$flags")" ]; then
+                track='';
+            fi;
+            __gitcomp_nl "$(__git_refs '' $track)"
+        ;;
+    esac
+}
+3_git_checkout () 
+{ 
+    __git_has_doubledash && return;
+    case "$cur" in 
+        --conflict=*)
+            __gitcomp "diff3 merge" "" "${cur##--conflict=}"
+        ;;
+        --*)
+            __gitcomp "
+			--quiet --ours --theirs --track --no-track --merge
+			--conflict= --orphan --patch
+			"
+        ;;
+        *)
+            local flags="--track --no-track --no-guess" track=1;
+            if [ -n "$(__git_find_on_cmdline "$flags")" ]; then
+                track='';
+            fi;
+            __gitcomp_nl "$(__git_refs '' $track)"
+        ;;
+    esac
+}
+44The program 'ruptime' is currently not installed. You can install it by typing:
+sudo apt-get install rwho
+444444444444/bin/sh: 1: grive: not found
+a11y.Bus'
+Successfully activated service 'org.a11y.Bus'
+Activating service name='org.a11y.atspi.Registry'
+Activating service name='org.gtk.vfs.Daemon'
+Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+** (at-spi2-registryd:17679): WARNING **: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (at-spi2-registryd:17679): WARNING **: Unable to register client with session manager
+Successfully activated service 'org.gtk.vfs.Daemon'
+Activating service name='ca.desrt.dconf'
+Successfully activated service 'ca.desrt.dconf'
+Activating service name='com.canonical.indicator.keyboard'
+Successfully activated service 'com.canonical.indicator.keyboard'
+Activating service name='org.freedesktop.Notifications'
+Activating service name='org.gnome.GConf'
+Successfully activated service 'org.gnome.GConf'
+Successfully activated service 'org.freedesktop.Notifications'
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+Invalid MIT-MAGIC-COOKIE-1 keyA connection to the bus can't be made
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+/usr/bin/php5
+ive: not found
+/bin/sh: 1: grive: not found
+/usr/bin/php5
+/bin/sh: 1: grive: not found
+/bin/sh: 1: grive: not found
+/bin/sh: 1: grive: not found
+/usr/bin/php5
+/bin/sh: 1: grive: not found
+a11y.Bus'
+Successfully activated service 'org.a11y.Bus'
+Activating service name='org.a11y.atspi.Registry'
+Activating service name='org.gtk.vfs.Daemon'
+Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+** (at-spi2-registryd:18409): WARNING **: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (at-spi2-registryd:18409): WARNING **: Unable to register client with session manager
+Successfully activated service 'org.gtk.vfs.Daemon'
+Activating service name='ca.desrt.dconf'
+Successfully activated service 'ca.desrt.dconf'
+Activating service name='com.canonical.indicator.keyboard'
+Successfully activated service 'com.canonical.indicator.keyboard'
+Activating service name='org.freedesktop.Notifications'
+Successfully activated service 'org.freedesktop.Notifications'
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Activating service name='org.gnome.GConf'
+Successfully activated service 'org.gnome.GConf'
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+A connection to the bus can't be made
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Underlying GIOStream returned 0 bytes on an async read (g-io-error-quark, 0). Exiting.
+g_dbus_connection_real_closed: Remote peer vanished with error: Error receiving message: Connection reset by peer (g-io-error-quark, 0). Exiting.
+/usr/bin/php5
+/bin/sh: 1: grive: not found
+/bin/sh: 1: grive: not found
+/bin/sh: 1: grive: not found
+/usr/bin/php5
+ive: not found
+axi-cache is /usr/bin/axi-cache
+debconf-show is /usr/bin/debconf-show
+desktop-file-validate is /usr/bin/desktop-file-validate
+gem1.9.1 is /usr/bin/gem1.9.1
+grub-set-default is /usr/sbin/grub-set-default
+grub-reboot is /usr/sbin/grub-reboot
+grub-editenv is /usr/bin/grub-editenv
+grub-mkconfig is /usr/sbin/grub-mkconfig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+bash: type: grub-sparc64-setup: not found
+grub-install is /usr/sbin/grub-install
+grub-mkfont is /usr/bin/grub-mkfont
+grub-mkrescue is /usr/bin/grub-mkrescue
+grub-mkimage is /usr/bin/grub-mkimage
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+quilt is /usr/bin/quilt
+_expand is a function
+_expand () 
+{ 
+    if [[ "$cur" == \~*/* ]]; then
+        eval cur=$cur 2> /dev/null;
+    else
+        if [[ "$cur" == \~* ]]; then
+            cur=${cur#\~};
+            COMPREPLY=($( compgen -P '~' -u "$cur" ));
+            [[ ${#COMPREPLY[@]} -eq 1 ]] && eval COMPREPLY[0]=${COMPREPLY[0]};
+            return ${#COMPREPLY[@]};
+        fi;
+    fi
+}
+_filedir is a function
+_filedir () 
+{ 
+    local i IFS='
+' xspec;
+    _tilde "$cur" || return 0;
+    local -a toks;
+    local quoted x tmp;
+    _quote_readline_by_ref "$cur" quoted;
+    x=$( compgen -d -- "$quoted" ) && while read -r tmp; do
+        toks+=("$tmp");
+    done <<< "$x";
+    if [[ "$1" != -d ]]; then
+        xspec=${1:+"!*.@($1|${1^^})"};
+        x=$( compgen -f -X "$xspec" -- $quoted ) && while read -r tmp; do
+            toks+=("$tmp");
+        done <<< "$x";
+    fi;
+    [[ -n ${COMP_FILEDIR_FALLBACK:-} && -n "$1" && "$1" != -d && ${#toks[@]} -lt 1 ]] && x=$( compgen -f -- $quoted ) && while read -r tmp; do
+        toks+=("$tmp");
+    done <<< "$x";
+    if [[ ${#toks[@]} -ne 0 ]]; then
+        compopt -o filenames 2> /dev/null;
+        COMPREPLY+=("${toks[@]}");
+    fi
+}
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+ufw is /usr/sbin/ufw
+initctl is /sbin/initctl
+start is /sbin/start
+stop is /sbin/stop
+restart is /sbin/restart
+status is /sbin/status
+reload is /sbin/reload
+valgrind is /usr/bin/valgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+/usr/bin/php5
+/bin/sh: 1: grive: not found
+/bin/sh: 1: grive: not found
+/bin/sh: 1: grive: not found
+/usr/bin/php5
+ive: not found
+axi-cache is /usr/bin/axi-cache
+debconf-show is /usr/bin/debconf-show
+desktop-file-validate is /usr/bin/desktop-file-validate
+gem1.9.1 is /usr/bin/gem1.9.1
+grub-set-default is /usr/sbin/grub-set-default
+
+ig
+grub-bios-setup is /usr/sbin/grub-bios-setup
+bash: type: grub-sparc64-setup: not found
+cue
+grub-mkpasswd-pbkdf2 is /usr/bin/grub-mkpasswd-pbkdf2
+grub-probe is /usr/sbin/grub-probe
+grub-script-check is /usr/bin/grub-script-check
+bash: type: insserv: not found
+module-assistant is /usr/bin/module-assistant
+pon is /usr/bin/pon
+poff is /usr/bin/poff
+quilt is /usr/bin/quilt
+_expand is a function
+
+_longopt is a function
+_longopt () 
+{ 
+    local cur prev words cword split;
+    _init_completion -s || return;
+    case "${prev,,}" in 
+        --help | --usage | --version)
+            return 0
+        ;;
+        --*dir*)
+            _filedir -d;
+            return 0
+        ;;
+        --*file* | --*path*)
+            _filedir;
+            return 0
+        ;;
+        --+([-a-z0-9_]))
+            local argtype=$( $1 --help 2>&1 | sed -ne                 "s|.*$prev\[\{0,1\}=[<[]\{0,1\}\([-A-Za-z0-9_]\{1,\}\).*|\1|p" );
+            case ${argtype,,} in 
+                *dir*)
+                    _filedir -d;
+                    return 0
+                ;;
+                *file* | *path*)
+                    _filedir;
+                    return 0
+                ;;
+            esac
+        ;;
+    esac;
+    $split && return 0;
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=($( compgen -W "$( $1 --help 2>&1 |             sed -ne 's/.*\(--[-A-Za-z0-9]\{1,\}=\{0,1\}\).*/\1/p' | sort -u )"             -- "$cur" ));
+        [[ $COMPREPLY == *= ]] && compopt -o nospace;
+    else
+        if [[ "$1" == @(mk|rm)dir ]]; then
+            _filedir -d;
+        else
+            _filedir;
+        fi;
+    fi
+}
+initctl is /sbin/initctl
+start is /sbin/start
+stop is /sbin/stop
+restart is /sbin/restart
+status is /sbin/status
+reload is /sbin/reload
+valgrind is /usr/bin/valgrind
+zeitgeist-daemon is /usr/bin/zeitgeist-daemon
+2_get_comp_words_by_ref is a function
+_get_comp_words_by_ref () 
+{ 
+    local exclude flag i OPTIND=1;
+    local cur cword words=();
+    local upargs=() upvars=() vcur vcword vprev vwords;
+    while getopts "c:i:n:p:w:" flag "$@"; do
+        case $flag in 
+            c)
+                vcur=$OPTARG
+            ;;
+            i)
+                vcword=$OPTARG
+            ;;
+            n)
+                exclude=$OPTARG
+            ;;
+            p)
+                vprev=$OPTARG
+            ;;
+            w)
+                vwords=$OPTARG
+            ;;
+        esac;
+    done;
+    while [[ $# -ge $OPTIND ]]; do
+        case ${!OPTIND} in 
+            cur)
+                vcur=cur
+            ;;
+            prev)
+                vprev=prev
+            ;;
+            cword)
+                vcword=cword
+            ;;
+            words)
+                vwords=words
+            ;;
+            *)
+                echo "bash: $FUNCNAME(): \`${!OPTIND}': unknown argument" 1>&2;
+                return 1
+            ;;
+        esac;
+        let "OPTIND += 1";
+    done;
+    __get_cword_at_cursor_by_ref "$exclude" words cword cur;
+    [[ -n $vcur ]] && { 
+        upvars+=("$vcur");
+        upargs+=(-v $vcur "$cur")
+    };
+    [[ -n $vcword ]] && { 
+        upvars+=("$vcword");
+        upargs+=(-v $vcword "$cword")
+    };
+    [[ -n $vprev && $cword -ge 1 ]] && { 
+        upvars+=("$vprev");
+        upargs+=(-v $vprev "${words[cword - 1]}")
+    };
+    [[ -n $vwords ]] && { 
+        upvars+=("$vwords");
+        upargs+=(-a${#words[@]} $vwords "${words[@]}")
+    };
+    (( ${#upvars[@]} )) && local "${upvars[@]}" && _upvars "${upargs[@]}"
+}
+22gettext.sh is /usr/bin/gettext.sh
+fatal: bad object 1a9549bdbc7068c1dd049f1a7d484494ae8022d8
+bd15edaae14390167a7a20
+05191fc4405dcd27ae91b6bd34a6d418f31ad68e
+bde4749b52a9bdc4dc51d2ec47fb36cd00bc2f63 
+a78dad623bd0da0a3d4ea447b7fe2ce5f3c3435f experiments
+9b5266ce1cdd449c358f5e3f20e2a19464743efb experiments/tor
+4178458e0d39283f8cc50582b7bd24ce9ca4d52e experiments/tor/configs
+405159998274b86fa66b355d4cf49ab301ad0a3e experiments/tor/configs/nodes
+3a440886be3079ce7d67f694f8edd2c0f3dbc7af experiments/tor/configs/nodes/node1
+19b4f66f5c16e13ef43720fdd99e0ad98f6d3c36 experiments/tor/configs/nodes/node1/etc
+b1beb1a6758a6c03f85911af7375b3ce29da5f8a experiments/tor/configs/nodes/node1/etc/privoxy
+a2b63f0bb39efbcb2f166e8c853e4a1661c279a2 experiments/tor/configs/nodes/node1/etc/privoxy/config
+0e71feb9302ab49777b681a4cf3cc38cb2c944be experiments/tor/configs/nodes/node1/etc/wgetrc
+08da5c12cc91c2fdfd58c272f494a923ebc738ff experiments/tor/configs/nodes/node1/tor-configs
+eb427c51f825d1a52f24c137529b8dd559abb9d0 experiments/tor/configs/nodes/node1/tor-configs/torrc
+00f564630beacf6cd9ef17ac56f024a3daa6dddc experiments/tor/configs/nodes/node2
+3b330f797d67f5884f58d17160347583b2e936d7 experiments/tor/configs/nodes/node2/tor-configs
+4ab814cca24ecb6f9c27bab2291a65f412ef98c3 experiments/tor/configs/nodes/node2/tor-configs/torrc
+4c8b8ced311e0eb43fff4c815ede10a3bc3c9d28 experiments/tor/configs/nodes/node3
+03f6a8e6c0e03f1860ac02977566da21cc3ba0ed experiments/tor/configs/nodes/node3/tor-configs
+851fa6a8c0c9e7f085c9a2396e71d8d7bd45fb9f experiments/tor/configs/nodes/node3/tor-configs/torrc
+93c95f59bc46cb3e676562c3bbb4b791344f890f experiments/tor/configs/nodes/node4
+61aa1294923b6482423b6fe26097de8841b1b8b3 experiments/tor/configs/nodes/node4/tor-configs
+c055443e90ed053cc1de7dd913a92d671ad52787 experiments/tor/configs/nodes/node4/tor-configs/torrc
+0b78168e5a74e23da17795b8960f54ef07f4f3b9 experiments/tor/configs/nodes/node6
+4f744307b4eb59ad9f7565751e3d16853fd5e9f1 experiments/tor/configs/nodes/node6/tor-configs
+2dcc3752d4250e41d51e68c1ccafa7bca7364d6b experiments/tor/configs/nodes/node6/tor-configs/torrc
+250501f7f1546d4d8524fafbd66136941784ac39 experiments/tor/configs/tor-setup.sh
+efa4855cdea0806887a94ca626628b92ca62c2d4 
+5281e35ead9377bd62c326223bd3bc1e98c3fe66 experiments
+3b68b12493d392f44a7cb625059ad08948a5edef experiments/tor
+459dbcc9a37ecc30995223797970ca4e80887998 experiments/tor/configs
+c2f2f7bf5e51e8710e87d26cee5dc63ea8362534 experiments/tor/configs/nodes
+01a4ee6b69ac5f3c1776f3c78fece7c879db7dee experiments/tor/configs/nodes/node1
+b921fc5686263acd6acbe6f41207761ed76e57b1 
+0806a2fa901fdd0a63a48e5416afef256f4bf38a experiments
+f13e37cd6348721018f30a7de81406ac4677ca7a experiments/tor
+77b58acd1df065261ba12c2adf2bc28d0873a440 experiments/tor/configs
+2222222222222222223/usr/bin/php5
+ive: not found
+/bin/sh: 1: grive: not found
+
+22222222222222222222222222

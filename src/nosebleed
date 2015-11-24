@@ -1,0 +1,118 @@
+#!/bin/sh
+# /etc/init.d/nosebleed
+#
+# Base script from http://www.debian-administration.org/articles/28
+
+# Upon startup, replaces /dev/null with a regular textfile to capture whatever 
+# 'trash' other init scripts, applications, etc. are dumping into /dev/null 
+# (e.g. through statements like './foo > /dev/null')
+
+# We use 'inotifywait' and keep waiting for modifications to /dev/null. Upon 
+# modifications, we 'tail' the last x lines of /dev/null and append them to 
+# a dump file in /var/log/nosebleed. The dump file name follows the format 
+# /var/log/nosebleed.[UNIX_EPOCH].
+
+# FIXME: we may want to change the 'Required-Start' and 'Default-Start' to 
+# try to 'catch' as many things as possible in different boot stages and 
+# run levels
+
+### BEGIN INIT INFO
+# Provides:             nosebleed
+# Required-Start:       $local_fs $remote_fs $time
+# Required-Stop:        
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Replaces /dev/null with a regular textfile on startup
+# Description:          Replaces /dev/null with a regular textfile on startup. 
+#						Brings /dev/null to normal behavior when stopped.
+### END INIT INFO
+
+# CREATE: 'sudo nano /etc/init.d/nosebleed', 
+# 'sudo chmod +x /etc/init.d/nosebleed'
+# ADD TO STARTUP: 'sudo update-rc.d nosebleed defaults'
+
+DEVNULL_FILE="/dev/null"
+NOSEBLEED_DIR="/var/log/nosebleed"
+DUMP_FILE="dump"
+
+case "$1" in
+
+  start)
+
+	echo "Starting nosebleed..."
+
+	# create the nosebleed directory (if it doesn't exist already)
+	if [ ! -d "$NOSEBLEED_DIR" ]; then
+		mkdir -p $NOSEBLEED_DIR
+	fi
+
+	# if the current /dev/null is non-empty, copy it to a safe place, 
+	# using the same nomenclature as /var/log/nosebleed/dump files
+	if [ $(wc -c <"$DEVNULL_FILE") -gt 0 ]; then
+		cat $DEVNULL_FILE > $NOSEBLEED_DIR/$DUMP_FILE.$(date +%s).log
+	fi
+
+	# remove current /dev/null
+	rm $DEVNULL_FILE
+
+	# create a replacement /dev/null file with adequate permissions
+	touch $DEVNULL_FILE
+	chmod 666 $DEVNULL_FILE
+
+	# create a new /var/log/nosebleed/dump file
+	UNIX_EPOCH=$(date +%s)
+	# FIXME: if we end up creating a dump file with the same name as above, 
+	# no problem: touch won't truncate it.
+	touch $NOSEBLEED_DIR/$DUMP_FILE.$UNIX_EPOCH.log
+	chmod 666 $NOSEBLEED_DIR/$DUMP_FILE.$UNIX_EPOCH.log
+	
+	# keep waiting for modifications to /dev/null. upon modifications, tail the 
+	# last x lines and append them to the dump file.
+	#while inotifywait -e modify $DEVNULL_FILE; do echo "$(date -u): $(cat $DEVNULL_FILE)" >> $NOSEBLEED_DIR/$DUMP_FILE.$UNIX_EPOCH.log; done &
+	while inotifywait -e modify $DEVNULL_FILE; do tail -f $DEVNULL_FILE >> $NOSEBLEED_DIR/$DUMP_FILE.$UNIX_EPOCH.log; done &
+
+	echo "done"
+
+exit
+
+    ;;
+
+  stop)
+
+	echo "Stopping nosebleed..."
+
+	# kill the inotifywait process
+	kill $(pgrep -f "inotifywait -e modify $DEVNULL_FILE")
+
+	# go ahead with the replacement of our /dev/null text file with a real 
+	# /dev/null
+	rm $DEVNULL_FILE
+	mknod $DEVNULL_FILE c 1 3
+	chmod 666 $DEVNULL_FILE
+
+	echo "done"
+
+    ;;
+
+  restart)
+
+    echo "Restarting nosebleed..."
+
+    /etc/init.d/nosebleed stop
+    /etc/init.d/nosebleed start
+
+    echo "done"
+
+    ;;
+
+  *)
+
+    echo "Usage: /etc/init.d/nosebleed {start|stop|restart}"
+
+    exit 1
+
+    ;;
+
+esac
+ 
+exit 0

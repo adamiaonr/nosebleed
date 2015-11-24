@@ -1,0 +1,24 @@
+TestingTorNetwork 1
+DataDirectory /home/ubuntu/workbench/tor-configs
+RunAsDaemon 1
+ConnLimit 60
+Nickname RS3
+ShutdownWaitLength 0
+PidFile /home/ubuntu/workbench/tor-configs/pid
+Log notice file /home/ubuntu/workbench/tor-configs/notice.log
+Log info file /home/ubuntu/workbench/tor-configs/info.log
+ProtocolWarnings 1
+SafeLogging 0
+DisableDebuggerAttachment 0
+DirAuthority RS4 orport=5000 no-v2 hs v3ident=E62BAC73F5EEBFF389079C6CBD1E102A06186CB1 172.31.100.40:7000 A6C8110817897B6702B438818315D89596C11EE5
+
+SocksPort 0
+OrPort 5000
+Address 172.31.100.30
+
+# An exit policy that allows exiting to IPv4 LAN
+ExitPolicy accept 172.31.100.0/24:*
+
+# An exit policy that allows exiting to IPv6 localhost
+ExitPolicy accept [::1]:*
+IPv6Exit 1
